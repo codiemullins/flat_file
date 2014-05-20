@@ -1,0 +1,22 @@
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'flat_file/version'
+
+Gem::Specification.new do |s|
+  s.name        = 'flat_file'
+  s.version     = FlatFile::VERSION
+  s.date        = '2013-08-03'
+  s.summary     = 'FlatFile - Parser and Writer'
+  s.description = 'DSL Parser/Writer for fixed-width and delimited files'
+  s.authors     = ['Codie Mullins', 'TJ Peden']
+  s.email       = 'codie.mullins@waterfield.com'
+  s.files       = `git ls-files`.split($RS)
+  s.test_files = s.files.grep(%r{^(test|spec)/})
+  s.require_paths = ['lib']
+  s.homepage    = 'http://rubygems.org/gems/slip_and_slide'
+  s.license     = 'MIT'
+
+  s.add_development_dependency('pry', '~> 0.9.12')
+  s.add_development_dependency('awesome_print', '~> 1.2.0')
+  s.add_development_dependency('rspec', '~> 2.14.0')
+end
