@@ -2,11 +2,13 @@ require 'codeclimate-test-reporter'
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  Coveralls::SimpleCov::Formatter,
-  SimpleCov::Formatter::HTMLFormatter,
-  CodeClimate::TestReporter::Formatter
-]
+if ENV["TRAVIS"] == 'true'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    Coveralls::SimpleCov::Formatter,
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
+end
 SimpleCov.start
 
 require File.expand_path(
