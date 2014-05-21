@@ -15,4 +15,13 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.homepage    = 'http://github.com/codiemullins/flat_file'
   s.license     = 'MIT'
+
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'simplecov', '~> 0.7.1'
+  s.add_development_dependency 'coveralls'
+  s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'rspec', '~> 2.14.0'
+  s.add_development_dependency 'awesome_print', '~> 1.2.0'
+  s.add_development_dependency 'pry', '~> 0.9.12'
+
 end
