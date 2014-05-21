@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require File.expand_path(
   File.join(File.dirname(__FILE__), '..', 'lib', 'flat_file'))
 

@@ -13,10 +13,6 @@ Gem::Specification.new do |s|
   s.files       = `git ls-files`.split($RS)
   s.test_files = s.files.grep(%r{^(test|spec)/})
   s.require_paths = ['lib']
-  s.homepage    = 'http://rubygems.org/gems/slip_and_slide'
+  s.homepage    = 'http://github.com/codiemullins/flat_file'
   s.license     = 'MIT'
-
-  s.add_development_dependency('pry', '~> 0.9.12')
-  s.add_development_dependency('awesome_print', '~> 1.2.0')
-  s.add_development_dependency('rspec', '~> 2.14.0')
 end
