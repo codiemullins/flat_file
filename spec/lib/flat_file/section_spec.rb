@@ -46,6 +46,11 @@ describe FlatFile::Section do
       @data = { id: 3, name: 'Bobby' }
     end
 
+    it 'should support dynamic method names as columns' do
+      @section.transaction_id(8)
+      @section.format(transaction_id: '1234').should == '1234    '
+    end
+
     it 'should default to string data aligned left' do
       @section.column(:id, 5)
       @section.column(:name, 10)

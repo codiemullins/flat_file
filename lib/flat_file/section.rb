@@ -1,12 +1,15 @@
 module FlatFile
   class Section
-    attr_accessor :definition
+    attr_accessor :definition, :optional, :singular
     attr_reader :name, :columns, :options
 
     def initialize(name, options = {})
-      @name = name
-      @options = options
-      @columns = []
+      @name     = name
+      @options  = options
+      @columns  = []
+      @trap     = options[:trap]
+      @optional = options[:optional] || false
+      @singular = options[:singular] || false
     end
 
     def column(name, length, options = {})
@@ -23,6 +26,10 @@ module FlatFile
       options = {}
       options[:padding] = spacer if spacer
       column(:spacer, length, options)
+    end
+
+    def trap(&block)
+      @trap = block
     end
 
     def format(data)
@@ -44,6 +51,14 @@ module FlatFile
       end
 
       row
+    end
+
+    def match(raw_line)
+      raw_line.nil? ? false : @trap.call(raw_line)
+    end
+
+    def method_missing(method, *args)
+      column(method, *args)
     end
   end
 end
