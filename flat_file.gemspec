@@ -21,6 +21,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coveralls'
   s.add_development_dependency 'codeclimate-test-reporter'
   s.add_development_dependency 'rspec', '~> 2.14.0'
+  s.add_development_dependency 'rspec-nc'
+  s.add_development_dependency 'guard'
+  s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'awesome_print', '~> 1.2.0'
   s.add_development_dependency 'pry', '~> 0.9.12'
 

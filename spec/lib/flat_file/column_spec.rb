@@ -74,9 +74,20 @@ describe FlatFile::Column do
       @column = FlatFile::Column.new(@name, @length, align: :right)
       @column.format(25).should == '     25'
     end
+
     it 'should respect default padding' do
       @column = FlatFile::Column.new(@name, @length)
       @column.format(25).should == '25     '
+    end
+
+    it 'should respect truncate' do
+      @column = FlatFile::Column.new(@name, @length, truncate: true)
+      @column.format('Moses Malone').should == 'Moses M'
+    end
+
+    it 'should respect truncate with right alignment' do
+      @column = FlatFile::Column.new(@name, @length, align: :right, truncate: true)
+      @column.format('Moses Malone').should == ' Malone'
     end
 
     it 'should respect padding with zeros' do
