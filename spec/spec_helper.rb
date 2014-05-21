@@ -1,5 +1,13 @@
+require 'codeclimate-test-reporter'
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter,
+  CodeClimate::TestReporter::Formatter
+]
+SimpleCov.start
 
 require File.expand_path(
   File.join(File.dirname(__FILE__), '..', 'lib', 'flat_file'))

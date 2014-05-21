@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/codiemullins/flat_file.png)](https://codeclimate.com/github/codiemullins/flat_file) 
+
 Flat File - Parser and Writer
 ==============
 
