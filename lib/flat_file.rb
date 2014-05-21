@@ -5,7 +5,6 @@ require 'flat_file/section'
 require 'flat_file/column'
 require 'flat_file/parser'
 require 'flat_file/generator'
-require 'flat_file/fixed'
 
 module FlatFile
   class ParserError < RuntimeError; end
